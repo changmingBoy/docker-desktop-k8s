@@ -24,9 +24,12 @@ kubectl create clusterrolebinding tiller \
 --clusterrole="cluster-admin" \
 --serviceaccount="kube-system:tiller"
 
+# 国内镜像源 https://github.com/BurdenBear/kube-charts-mirror
+
 helm init \
 --tiller-image="k8sgcr/tiller:v2.10.0" \
---service-account="tiller"
+--service-account="tiller" \
+--stable-repo-url="https://burdenbear.github.io/kube-charts-mirror/"
 
 ```
 
